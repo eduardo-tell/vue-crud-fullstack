@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
-import { api } from '../services/api'
+
+import { supabase } from '../lib/supabase'
 
 /**
  * Store centralizada.
@@ -9,22 +10,41 @@ export const useUserStore = defineStore('userStore', {
   state: () => ({
     users: [],
     loading: false,
+    error: null,
   }),
 
   actions: {
     async fetchUsers() {
       this.loading = true
+      this.error = null
 
       try {
-        const response = await api.get('/users')
-        this.users = response.data
+        const { data, error } = await supabase
+          .from('primeiroteste')
+          .select('id, name, email')
+          .order('id', { ascending: false })
+
+        if (error) throw error
+
+        this.primeiroteste = data ?? []
+      } catch (error) {
+        this.error = error.message ?? 'Erro ao carregar usuários'
+        console.error(error)
       } finally {
         this.loading = false
       }
     },
 
     async createUser(payload) {
-      await api.post('/users', payload)
+      this.error = null
+
+      const { error } = await supabase.from('primeiroteste').insert(payload)
+
+      if (error) {
+        this.error = error.message ?? 'Erro ao salvar usuário'
+        throw error
+      }
+
       await this.fetchUsers()
     },
   },

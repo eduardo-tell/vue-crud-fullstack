@@ -6,9 +6,13 @@
       Carregando...
     </div>
 
-    <ul class="list">
+    <p v-else-if="store.error" class="error">
+      {{ store.error }}
+    </p>
+
+    <ul v-else class="list">
       <li
-        v-for="user in store.users"
+        v-for="user in store.primeiroteste"
         :key="user.id"
         class="card"
       >
