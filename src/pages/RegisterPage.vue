@@ -1,6 +1,6 @@
 <template>
-  <section class="page">
-    <h2>Cadastro</h2>
+  <section class="mx-auto max-w-7xl px-6 lg:px-8 mt-5">
+    <h2 class="text-4xl font-medium tracking-tight text-gray-900">Cadastro</h2>
 
     <form class="form" @submit.prevent="handleSubmit">
       <p v-if="store.error" class="error">
@@ -31,11 +31,11 @@ import { useRouter } from 'vue-router'
 import BaseButton from '../components/ui/BaseButton.vue'
 import BaseInput from '../components/ui/BaseInput.vue'
 
-import { useUserStore } from '../stores/userStore'
+import { gerenciadorDeUsuarios } from '../stores/userStore'
 
 const router = useRouter()
 
-const store = useUserStore()
+const store = gerenciadorDeUsuarios()
 
 const name = ref('')
 const email = ref('')

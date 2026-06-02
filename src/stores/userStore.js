@@ -6,7 +6,7 @@ import { supabase } from '../lib/supabase'
  * Store centralizada.
  * Mantém estado compartilhado e escalável.
  */
-export const useUserStore = defineStore('userStore', {
+export const gerenciadorDeUsuarios = defineStore('gerenciadorDeUsuarios', {
   state: () => ({
     users: [],
     loading: false,
@@ -42,6 +42,19 @@ export const useUserStore = defineStore('userStore', {
 
       if (error) {
         this.error = error.message ?? 'Erro ao salvar usuário'
+        throw error
+      }
+
+      await this.fetchUsers()
+    },
+
+    async deleteUser(id) {
+      this.error = null
+
+      const { error } = await supabase.from('primeiroteste').delete().eq('id', id)
+
+      if (error) {
+        this.error = error.message ?? 'Erro ao deletar usuário'
         throw error
       }
 
