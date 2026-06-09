@@ -17,5 +17,24 @@ Veja o projeto online: [https://eduardo-tell.github.io/vue-crud-fullstack/](http
 * Gerenciamento de estados de carregamento (loading) e tratamento de erros.
 
 ## Próximos Passos
-* [ ] Opção de editar usuário.
-* [ ] Contador de "total de itens" cadastrados exibido na interface.
+
+### CRUD Completo
+* [ ] Edição de usuário com modal ou página dedicada, preenchendo os campos com os dados atuais.
+* [ ] Validação de formulário no front-end (campos obrigatórios, formato de e-mail, duplicidade).
+* [ ] Confirmação antes de excluir ("Tem certeza?") para evitar exclusões acidentais.
+
+### Listagem e Navegação
+* [ ] Contador de total de usuários exibido acima da lista.
+* [ ] Paginação ou scroll infinito para suportar grandes volumes de dados.
+* [ ] Busca/filtro por nome ou e-mail em tempo real.
+* [ ] Ordenação dinâmica por coluna (nome, e-mail, data de cadastro).
+
+### Campos e Dados
+* [ ] Adicionar campo de telefone, avatar ou outros atributos ao perfil.
+* [ ] Exibir data de criação de cada registro na listagem.
+* [ ] Suporte a importação em lote via arquivo CSV.
+
+### Experiência do Usuário
+* [ ] Feedback visual de sucesso após criar, editar ou excluir (toast/notificação).
+* [ ] Esqueleto de carregamento (skeleton screen) no lugar do texto "Carregando...".
+* [ ] Interface responsiva para dispositivos móveis.
