@@ -2,7 +2,7 @@
 Projeto desenvolvido para fins de estudo de uma aplicação VueJs, integrando uma interface moderna e reativa com persistência de dados em tempo real.
 
 ## Demonstração
-Veja o projeto online: [https://eduardo-tell.github.io/vue-crud-fullstack/](https://eduardo-tell.github.io/vue-crud-fullstack/)
+Veja o projeto online: [https://eduardo-tell.github.io/vue-crud-fullstack/](https://eduardo-tell.github.io/banco-de-usuarios/)
 
 ## Tecnologias Utilizadas
 * **Vue 3**: Utilizado com a Composition API para a construção de uma interface reativa, modular e de alto desempenho.
