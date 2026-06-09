@@ -20,5 +20,9 @@
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    transition: all 0.3s
+  }
+  .base-button:hover {
+    background: #383838;
   }
 </style>

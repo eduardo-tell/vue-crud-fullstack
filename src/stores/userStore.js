@@ -20,13 +20,13 @@ export const gerenciadorDeUsuarios = defineStore('gerenciadorDeUsuarios', {
 
       try {
         const { data, error } = await supabase
-          .from('primeiroteste')
+          .from('bancousuarios')
           .select('id, name, email')
           .order('id', { ascending: false })
 
         if (error) throw error
 
-        this.primeiroteste = data ?? []
+        this.bancousuarios = data ?? []
       } catch (error) {
         this.error = error.message ?? 'Erro ao carregar usuários'
         console.error(error)
@@ -38,7 +38,7 @@ export const gerenciadorDeUsuarios = defineStore('gerenciadorDeUsuarios', {
     async createUser(payload) {
       this.error = null
 
-      const { error } = await supabase.from('primeiroteste').insert(payload)
+      const { error } = await supabase.from('bancousuarios').insert(payload)
 
       if (error) {
         this.error = error.message ?? 'Erro ao salvar usuário'
@@ -51,7 +51,7 @@ export const gerenciadorDeUsuarios = defineStore('gerenciadorDeUsuarios', {
     async deleteUser(id) {
       this.error = null
 
-      const { error } = await supabase.from('primeiroteste').delete().eq('id', id)
+      const { error } = await supabase.from('bancousuarios').delete().eq('id', id)
 
       if (error) {
         this.error = error.message ?? 'Erro ao deletar usuário'
